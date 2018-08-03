@@ -1,0 +1,108 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle start>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            CXA Monitoring 2.0
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="logout()" end>
+                Log Out
+                <ion-icon name="exit" style="padding-left: 10px"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ol>
+        <li *ngFor="let machine of getMachines()">
+            <ion-buttons>
+                <button ion-button (click)="machines.get(machine).isDropDown=!machines.get(machine).isDropDown">
+                    <ion-icon *ngIf="!machines.get(machine).isDropDown" name="arrow-dropright"></ion-icon>
+                    <ion-icon *ngIf="machines.get(machine).isDropDown" name="arrow-dropdown"></ion-icon>
+                </button>
+                <button ion-button>{{machine}}</button>
+            </ion-buttons>
+            <ol *ngIf="machines.get(machine).isDropDown">
+                <li *ngFor="let metric of machines.get(machine).metrics">
+                    <button ion-button (click)="metric.isDropDown=!metric.isDropDown">
+                        <ion-icon *ngIf="!metric.isDropDown" name="arrow-dropright"></ion-icon>
+                        <ion-icon *ngIf="metric.isDropDown" name="arrow-dropdown"></ion-icon>
+                    </button>
+                    <button ion-button>{{metric.name}}</button>
+                    <ol *ngIf="metric.isDropDown">
+                        <li *ngFor="let metricKey of metric.getMetricNames()">
+                            <button ion-button>{{metricKey}}</button>
+                            <button ion-button>{{metric.metricValue.get(metricKey)}}</button>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+
+    <!--<ngx-widget-grid [rows]="10" [columns]="10" [highlightNextPosition]="false"-->
+    <!--[showGrid]="true">-->
+    <!--<ngx-widget [(position)]="pos"-->
+    <!--[movable]="true" [resizable]="true">-->
+    <!--<div style="height:100%;width:100%; display:flex;">-->
+    <!--<div style="height:100%;width:100%; padding:10px; background-color: rgb(140, 198, 0);">-->
+    <!--<div style="display: block; height:100%;width:100%;"-->
+    <!--(mouseenter)="hovered=true" (mouseleave)="hovered=false">-->
+    <!--<canvas baseChart style="height:100%;width:100%;"-->
+    <!--[datasets]="barChartData"-->
+    <!--[labels]="barChartLabels"-->
+    <!--[options]="barChartOptions"-->
+    <!--[legend]="barChartLegend"-->
+    <!--[chartType]="barChartType"-->
+    <!--(chartHover)="chartHovered($event)"-->
+    <!--(chartClick)="chartClicked($event)"></canvas>-->
+    <!--<button *ngIf="hovered" style="position:absolute; top:0; right:0; background: rgba(0,0,0,0)"><ion-icon name="close-circle"></ion-icon></button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</ngx-widget>-->
+    <!--</ngx-widget-grid>-->
+
+    <!--https://www.npmjs.com/package/ng2-split-pane-->
+    <!--https://leovo2708.github.io/ngx-treeview/#/components-->
+
+    <!--http://demos.wijmo.com/5/Angular2/TreeViewIntro/TreeViewIntro/-->
+    <!--https://angular2-tree.readme.io/docs-->
+    <!--<vertical-split-pane-->
+    <!--primary-component-minsize="150"-->
+    <!--secondary-component-minsize="300"-->
+    <!--primary-component-initialratio=".3"-->
+    <!--local-storage-key="split-pane">-->
+
+    <!--<div class="split-pane-content-primary">-->
+    <!--&lt;!&ndash;<div class="upper" style="height: 100%">&ndash;&gt;-->
+    <!--Upper pane-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+
+    <!--<div class="split-pane-content-secondary">-->
+    <!--&lt;!&ndash;<div class="lower">&ndash;&gt;-->
+    <!--&lt;!&ndash;Lower pane&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&
+        <!--<ngx-widget [(position)]="{top: 1,left: 2,height: 1,width: 1}"-->
+    <!--[movable]="true" [resizable]="true">-->
+    <!--<div style="display: block">-->
+    <!--<canvas baseChart-->
+    <!--[datasets]="barChartData"-->
+    <!--[labels]="barChartLabels"-->
+    <!--[options]="barChartOptions"-->
+    <!--[legend]="barChartLegend"-->
+    <!--[chartType]="barChartType"-->
+    <!--(chartHover)="chartHovered($event)"-->
+    <!--(chartClick)="chartClicked($event)"></canvas>-->
+    <!--</div>-->
+    <!--</ngx-widget>-->
+    <!--<button (click)="randomize()">Update</button>-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</vertical-split-pane>-->
+</ion-content>

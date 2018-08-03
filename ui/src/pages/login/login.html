@@ -1,0 +1,88 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding class="masters">
+  <ion-card class="signin-card">
+    <img src="assets/login/MangagedMonitoringConsole.png"
+         alt="Logo" title="Logo" style="width: 300px;"/>
+    <ion-card-content>
+      <ion-card-title class="display1">CXA Monitoring 2.0</ion-card-title>
+      <p class="subhead">Monitor to your heart's content</p>
+
+      <div class="input-fields">
+        <ion-item>
+          <ion-label color="primary" id="username-label" floating>Username</ion-label>
+          <ion-input type="text" required [(ngModel)]="username" placeholder="Username" class="input-box"
+                     (focusout)="lostFocus('username')" id="username"></ion-input>
+          <!--<div class="alert alert-danger">-->
+          <!--Username is required-->
+          <!--</div>-->
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" floating id="password-label">Password</ion-label>
+          <ion-input type="password" required placeholder="Password" [(ngModel)]="password"
+                     id="password" (focusout)="lostFocus('password')"
+                     class="input-box"></ion-input>
+        </ion-item>
+      </div>
+      <!--<ion-item>-->
+      <!--<ion-checkbox></ion-checkbox>-->
+      <!--<ion-label>Remeber Me</ion-label>-->
+      <!--</ion-item>-->
+      <!--<div id="form-login-remember" class="form-group" style="padding-left: 20px">-->
+      <!--<div class="checkbox checkbox-default">-->
+      <!--<input id="remember" type="checkbox" value="yes" alt="Remember me" class="">-->
+      <!--<label for="remember">Remember me</label>-->
+      <!--</div>-->
+      <!--</div>-->
+      <button ion-button type="submit" name="Submit" style="width: 275px;"
+              (click)="signIn()"
+              alt="sign in">Sign in
+      </button>
+    </ion-card-content>
+  </ion-card>
+
+
+  <!--<div class="container">-->
+  <!--<div id="login" class="signin-card">-->
+  <!--<div class="logo-image">-->
+  <!--<img src="assets/login/MangagedMonitoringConsole.png" alt="Logo"-->
+  <!--title="Logo"-->
+  <!--width="300">-->
+  <!--</div>-->
+  <!--<h1 class="display1">CXA Monitoring 2.0</h1>-->
+  <!--<p class="subhead">Monitor to your heart's content</p>-->
+  <!--<form action="" method="" class="" role="form">-->
+  <!--<div id="form-login-username" class="form-group">-->
+  <!--<input [(ngModel)]="username" id="username" class="form-control" name="username" type="text" size="18"-->
+  <!--alt="login" required/>-->
+  <!--<span class="form-highlight"></span>-->
+  <!--<span class="form-bar"></span>-->
+  <!--<label for="username" class="float-label">login</label>-->
+  <!--</div>-->
+  <!--<div id="form-login-password" class="form-group">-->
+  <!--<input [(ngModel)]="password" id="passwd" class="form-control" name="password" type="password" size="18"-->
+  <!--alt="password" required>-->
+  <!--<span class="form-highlight"></span>-->
+  <!--<span class="form-bar"></span>-->
+  <!--<label for="passwd" class="float-label">password</label>-->
+  <!--</div>-->
+  <!--<div id="form-login-remember" class="form-group" style="padding-left: 20px">-->
+  <!--<div class="checkbox checkbox-default">-->
+  <!--<input id="remember" type="checkbox" value="yes" alt="Remember me" class="">-->
+  <!--<label for="remember">Remember me</label>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div>-->
+  <!--<button id="signin-button" class="btn btn-block btn-info ripple-effect" type="submit" name="Submit"-->
+  <!--(click)="signIn()"-->
+  <!--alt="sign in">Sign in-->
+  <!--</button>-->
+  <!--</div>-->
+  <!--</form>-->
+  <!--</div>-->
+  <!--</div>-->
+</ion-content>
